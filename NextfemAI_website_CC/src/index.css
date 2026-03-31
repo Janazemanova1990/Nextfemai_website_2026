@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-purple: #ada2cc;
+  --color-turquoise: #9fd7d5;
+  --color-coral: #e76e50;
+  --color-nearblack: #0e0d12;
+  --color-muted-body: #5a5066;
+  --color-muted-subtle: #9d93ac;
+  --color-bg-off: #f8f7fc;
+  --color-border-soft: #e8e4f4;
+  --font-family-sans: "DM Sans", sans-serif;
+}
+
+@utility text-outline-purple {
+  -webkit-text-stroke: 2px #ada2cc;
+  color: transparent;
+}
+
+* {
+  border-radius: 0 !important;
+}
