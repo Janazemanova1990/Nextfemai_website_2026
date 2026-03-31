@@ -11,42 +11,54 @@ vibe coding, Claude Code, automations, agents. Not for beginners.
 - Monthly live session + Discord community
 
 ## Tech Stack
-- React + Vite
-- Tailwind CSS
-- Single page, no router needed
+- React 19 + Vite 8
+- Tailwind CSS v4 (uses @tailwindcss/vite plugin — no tailwind.config.js)
+- Brand tokens defined in src/index.css via @theme {}
+- Single page, no router
+- Vitest + React Testing Library for tests
+
+## Form Backend
+- Form POSTs JSON to VITE_FORM_WEBHOOK_URL (n8n webhook)
+- No backend in this app
+- On submit: Telegram notification to Jana → manual review → welcome email to accepted applicant
 
 ## Brand
-- Purple: #ada2cc
-- Turquoise: #9fd7d5
-- Coral (CTA buttons only): #e76e50
+- Purple: #ada2cc — primary accent, eyebrows, icons
+- Turquoise: #9fd7d5 — "Yes" column underline only
+- Coral: #e76e50 — CTA buttons ONLY, nothing else
+- Near-black: #0e0d12 — text, borders, footer bg
 - Background: #ffffff / #f8f7fc
-- Font: DM Sans (Google Fonts)
-- Tone: warm, honest, direct. Women talking to women. No corporate speak.
+- Font: DM Sans (Google Fonts, loaded in index.html)
+
+## Logo Files (in public/)
+- nextfem-horizontal-transparent.png — used in hero top bar (h-8)
+- nextfem-favicon-transparent.png — used in footer (h-6) and as favicon
+- nextfem-vertical-transparent.png — available but not currently used
+
+## Visual Style
+- Swiss Poster Grid hero (hard 2px borders, strict grid)
+- Warm/clean below the hero (soft 1px borders)
+- No rounded corners anywhere (enforced via * { border-radius: 0 !important })
+- No gradients, no shadows, no glassmorphism
 
 ## Page Sections (in order)
-1. Hero
-2. How it works
-3. Is this for you
-4. What you get (the commitment fee section)
-5. Application form
+1. Hero — logo bar, headline with outlined "building", price box, CTA, stats bar
+2. How it works — 3 numbered steps
+3. Is this for you — two-column yes/no
+4. What you get — 2×2 cards + dark price bar
+5. Application form — 6 fields, webhook POST
+6. Footer
 
-## Application Form Fields
-- First name
-- Email
-- What are you currently building or experimenting with? (open text)
-- What tools are you using? (open text)
-- What do you want from this community? (open text)
-- Link to something you've built (optional)
+## Stats Bar (Hero)
+No member count — uses founding cohort framing:
+- "Founding cohort" / be one of the first
+- 1× / live · month
+- "Application" / only
 
 ## What Claude Gets Wrong
-- Coral is for CTA buttons only, nothing else
-- No Lorem ipsum — write real copy
+- Coral is for CTA buttons only — never decorative
+- No Lorem ipsum — all copy is final (see design spec)
 - No extra pages, no router
-- DM Sans must load from Google Fonts
+- DM Sans loads from Google Fonts in index.html — do not use next/font or local import
 - Keep it warm, not corporate
-```
-
-**Step 2** — first prompt in Claude Code:
-```
-Read CLAUDE.md. Plan the component structure for this single page site.
-List the components, their purpose, and the build order. Don't code yet.
+- Tailwind v4 — no tailwind.config.js, tokens go in src/index.css @theme block
