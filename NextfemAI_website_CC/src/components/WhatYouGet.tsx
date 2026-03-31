@@ -50,7 +50,7 @@ export function WhatYouGet() {
         What you get
       </p>
       <h2 className="text-[26px] font-extrabold tracking-[-0.02em] text-nearblack mb-7">
-        One offer. Nothing extra.
+        One offer. Built for builders.
       </h2>
 
       <div className="grid grid-cols-2 gap-4 mb-8">

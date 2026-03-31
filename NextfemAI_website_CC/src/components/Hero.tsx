@@ -53,12 +53,12 @@ export function Hero() {
           <div className="text-[10px] text-[#888] uppercase tracking-[0.1em] mt-0.5">be one of the first</div>
         </div>
         <div className="px-5 py-4 border-r border-border-soft">
-          <div className="text-[24px] font-black text-purple leading-none">1×</div>
-          <div className="text-[10px] text-[#888] uppercase tracking-[0.1em] mt-0.5">live / month</div>
+          <div className="text-[16px] font-black text-purple leading-none">1× live</div>
+          <div className="text-[10px] text-[#888] uppercase tracking-[0.1em] mt-0.5">per month</div>
         </div>
         <div className="px-5 py-4">
-          <div className="text-[16px] font-black text-purple leading-none">Application</div>
-          <div className="text-[10px] text-[#888] uppercase tracking-[0.1em] mt-0.5">only</div>
+          <div className="text-[16px] font-black text-purple leading-none">Application only</div>
+          <div className="text-[10px] text-[#888] uppercase tracking-[0.1em] mt-0.5">limited spots</div>
         </div>
       </div>
     </section>

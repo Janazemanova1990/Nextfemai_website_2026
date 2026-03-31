@@ -53,7 +53,7 @@ export function IsThisForYou() {
               key={item}
               className="flex gap-2.5 items-start py-2 border-b border-dotted border-[#e0dcea] last:border-0 text-[13px] leading-relaxed text-[#999]"
             >
-              <span className="flex-shrink-0 mt-0.5">×</span>
+              <span className="flex-shrink-0 mt-1">×</span>
               <span>{item}</span>
             </div>
           ))}
