@@ -33,3 +33,95 @@ body {
   background: var(--color-purple);
   color: #fff;
 }
+
+/* ─── Universal scroll reveal ─────────────────── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 280ms ease-out, transform 280ms ease-out;
+}
+.section-reveal[data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── Hero entrance ──────────────────────────── */
+.hero-line { display: block; }
+.building-reveal { display: inline-block; }
+
+/* Negative top/bottom insets keep ascenders + descenders visible
+   throughout the wipe (line-height: 0.85 is tight enough that the
+   "g" descenders in "building" extend past the line box). */
+@keyframes heroLineReveal {
+  from { clip-path: inset(110% -5% -30% -5%); }
+  to   { clip-path: inset(-30% -5% -30% -5%); }
+}
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes heroWipeRight {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+@keyframes buildingReveal {
+  from { clip-path: inset(-30% 100% -30% -5%); }
+  to   { clip-path: inset(-30% -5% -30% -5%); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-line       { animation: heroLineReveal 320ms ease-out both; }
+  .hero-line-1     { animation-delay: 0ms; }
+  .hero-line-2     { animation-delay: 80ms; }
+  .hero-line-3     { animation-delay: 160ms; }
+  .hero-fade-up    { animation: heroFadeUp 240ms 500ms ease-out both; }
+  .hero-wipe-right { animation: heroWipeRight 320ms 600ms ease-out both; }
+  .building-reveal { animation: buildingReveal 600ms 320ms ease-out both; }
+}
+
+/* ─── HowItWorks numbered steps ──────────────── */
+.step-num-wrap {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: baseline;
+}
+.step-num {
+  display: block;
+  transform: translateY(100%);
+  transition: transform 420ms ease-out;
+  transition-delay: calc(var(--step-i, 0) * 120ms);
+}
+.step-content {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 280ms ease-out, transform 280ms ease-out;
+  transition-delay: calc(var(--step-i, 0) * 120ms + 180ms);
+}
+.how-it-works[data-revealed="true"] .step-num {
+  transform: translateY(0);
+}
+.how-it-works[data-revealed="true"] .step-content {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal,
+  .hero-line,
+  .hero-fade-up,
+  .hero-wipe-right,
+  .building-reveal {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    animation: none;
+    transition: none;
+  }
+  .step-num,
+  .step-content {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}

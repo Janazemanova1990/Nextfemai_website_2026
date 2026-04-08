@@ -20,16 +20,16 @@ export function Hero() {
       <div className="px-8 pt-10 pb-8 grid grid-cols-[1fr_auto] gap-6 items-end">
         <div>
           <h1 className="text-[clamp(48px,8vw,96px)] font-black leading-[0.85] tracking-[-0.04em] mb-5 text-nearblack">
-            What are<br />
-            you <span className="text-outline-purple">building</span><br />
-            right now?
+            <span className="hero-line hero-line-1">What are</span>
+            <span className="hero-line hero-line-2">you <span className="text-outline-purple building-reveal">building</span></span>
+            <span className="hero-line hero-line-3">right now?</span>
           </h1>
           <p className="text-[15px] text-muted-body leading-relaxed max-w-[340px]">
             A peer community for women already building with AI — vibe coding,
             automations, agents. Application only, limited spots.
           </p>
         </div>
-        <div className="flex flex-col items-end gap-4">
+        <div className="hero-fade-up flex flex-col items-end gap-4">
           <div className="border-2 border-nearblack px-4 py-4 text-center">
             <div className="text-[28px] font-black leading-none">10€</div>
             <div className="text-[11px] text-muted-subtle uppercase tracking-[0.08em] mt-0.5">per month</div>
@@ -44,7 +44,7 @@ export function Hero() {
       </div>
 
       {/* Stats bar */}
-      <div className="grid grid-cols-3 border-t-2 border-nearblack">
+      <div className="hero-wipe-right grid grid-cols-3 border-t-2 border-nearblack">
         <div className="px-5 py-4 border-r-2 border-nearblack">
           <div className="text-[16px] font-black text-purple leading-none">Founding cohort</div>
           <div className="text-[10px] text-muted-subtle uppercase tracking-[0.1em] mt-1">be one of the first</div>

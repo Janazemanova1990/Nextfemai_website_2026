@@ -16,6 +16,7 @@ vibe coding, Claude Code, automations, agents. Not for beginners.
 - Brand tokens defined in src/index.css via @theme {}
 - Single page, no router
 - Vitest + React Testing Library for tests
+- src/hooks/useReveal.ts — IntersectionObserver-based scroll reveal hook (jsdom-safe)
 
 ## Form Backend
 - Form POSTs JSON to VITE_FORM_WEBHOOK_URL (n8n webhook)
@@ -41,6 +42,14 @@ vibe coding, Claude Code, automations, agents. Not for beginners.
 - No rounded corners anywhere (enforced via * { border-radius: 0 !important })
 - No gradients, no shadows, no glassmorphism
 
+## Motion
+- CSS-only. No motion libraries (no framer-motion, gsap, motion). The snap aesthetic doesn't suit JS spring physics.
+- Easing: ease-out or linear. No spring, no bounce.
+- Durations: 80–420ms micro, ~920ms ceiling for the hero entrance sequence.
+- Keyframes live in src/index.css alongside @theme tokens, not a separate file.
+- All motion must respect @media (prefers-reduced-motion: reduce).
+- Scroll reveals use the useReveal hook (src/hooks/useReveal.ts) — IntersectionObserver with a jsdom fallback. Apply the hook directly to a section's root element with the .section-reveal class. No wrapper component.
+
 ## Page Sections (in order)
 1. Hero — logo bar, headline with outlined "building", price box, CTA, stats bar
 2. How it works — 3 numbered steps
@@ -62,3 +71,6 @@ No member count — uses founding cohort framing:
 - DM Sans loads from Google Fonts in index.html — do not use next/font or local import
 - Keep it warm, not corporate
 - Tailwind v4 — no tailwind.config.js, tokens go in src/index.css @theme block
+- Do not animate text by replacing it with inline SVG <text> for stroke-draw effects. SVG text baseline metrics don't reliably match surrounding CSS text — you get descender clipping and baseline drift. Use CSS clip-path on real text instead.
+- All animations must respect prefers-reduced-motion: reduce. Test with DevTools → Rendering → Emulate.
+- For clip-path wipes on text with tight leading (e.g. leading-[0.85] in the hero), use NEGATIVE top/bottom insets in the keyframe (e.g. inset(-30% -5% -30% -5%)) so descenders/ascenders aren't cropped at the line box.

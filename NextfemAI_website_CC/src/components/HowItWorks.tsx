@@ -1,3 +1,6 @@
+import type { CSSProperties } from 'react'
+import { useReveal } from '../hooks/useReveal'
+
 const steps = [
   {
     num: '01',
@@ -17,8 +20,13 @@ const steps = [
 ]
 
 export function HowItWorks() {
+  const { ref, revealed } = useReveal<HTMLElement>()
   return (
-    <section className="px-8 py-12 border-b-2 border-nearblack">
+    <section
+      ref={ref}
+      data-revealed={revealed}
+      className="how-it-works px-8 py-12 border-b-2 border-nearblack"
+    >
       <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         How it works
       </p>
@@ -32,11 +40,12 @@ export function HowItWorks() {
             className={`grid grid-cols-[auto_1fr] gap-8 items-baseline py-8 ${
               i < steps.length - 1 ? 'border-b-2 border-nearblack' : 'pb-0'
             }`}
+            style={{ '--step-i': i } as CSSProperties}
           >
-            <span className="text-[72px] font-black text-purple leading-none tracking-[-0.04em]">
-              {step.num}
+            <span className="step-num-wrap text-[72px] font-black text-purple leading-none tracking-[-0.04em]">
+              <span className="step-num">{step.num}</span>
             </span>
-            <div>
+            <div className="step-content">
               <h3 className="text-[20px] font-bold text-nearblack mb-2">{step.title}</h3>
               <p className="text-[15px] text-muted-body leading-[1.6] max-w-[440px]">{step.body}</p>
             </div>

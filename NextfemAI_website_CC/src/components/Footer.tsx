@@ -1,6 +1,13 @@
+import { useReveal } from '../hooks/useReveal'
+
 export function Footer() {
+  const { ref, revealed } = useReveal<HTMLElement>()
   return (
-    <footer className="bg-nearblack text-white">
+    <footer
+      ref={ref}
+      data-revealed={revealed}
+      className="section-reveal bg-nearblack text-white"
+    >
       <div className="px-8 py-14 border-b border-[#2a2730]">
         <p className="text-[clamp(28px,4vw,44px)] font-black leading-[0.95] tracking-[-0.03em] mb-5">
           What are you<br />building?

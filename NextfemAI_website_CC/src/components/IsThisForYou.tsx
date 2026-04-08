@@ -1,3 +1,5 @@
+import { useReveal } from '../hooks/useReveal'
+
 const yesItems = [
   "Are already building something with AI, even if it's messy or unfinished",
   'Have used Claude Code, Cursor, Codex, or vibe coded anything',
@@ -39,8 +41,13 @@ const CrossIcon = () => (
 )
 
 export function IsThisForYou() {
+  const { ref, revealed } = useReveal<HTMLElement>()
   return (
-    <section className="px-8 py-12 border-b-2 border-nearblack bg-bg-off">
+    <section
+      ref={ref}
+      data-revealed={revealed}
+      className="section-reveal px-8 py-12 border-b-2 border-nearblack bg-bg-off"
+    >
       <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         Is this for you?
       </p>

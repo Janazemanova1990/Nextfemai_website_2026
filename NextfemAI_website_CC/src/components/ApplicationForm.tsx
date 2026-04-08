@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useReveal } from '../hooks/useReveal'
 
 type FormData = {
   firstName: string
@@ -18,6 +19,7 @@ const labelClass =
   'text-[11px] font-bold tracking-[0.12em] uppercase text-nearblack'
 
 export function ApplicationForm() {
+  const { ref, revealed } = useReveal<HTMLElement>()
   const [form, setForm] = useState<FormData>({
     firstName: '',
     email: '',
@@ -50,7 +52,12 @@ export function ApplicationForm() {
 
   if (status === 'success') {
     return (
-      <section id="apply" className="px-8 py-12 border-b-2 border-nearblack">
+      <section
+        id="apply"
+        ref={ref}
+        data-revealed={revealed}
+        className="section-reveal px-8 py-12 border-b-2 border-nearblack"
+      >
         <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
         <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-4">
           Application sent.
@@ -63,7 +70,12 @@ export function ApplicationForm() {
   }
 
   return (
-    <section id="apply" className="px-8 py-12 border-b-2 border-nearblack">
+    <section
+      id="apply"
+      ref={ref}
+      data-revealed={revealed}
+      className="section-reveal px-8 py-12 border-b-2 border-nearblack"
+    >
       <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
       <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
         Tell us about<br />your work.
