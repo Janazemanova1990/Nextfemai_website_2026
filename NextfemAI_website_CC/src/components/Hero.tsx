@@ -19,10 +19,7 @@ export function Hero() {
       {/* Main area */}
       <div className="px-8 pt-10 pb-8 grid grid-cols-[1fr_auto] gap-6 items-end">
         <div>
-          <h1
-            className="font-black leading-[0.95] tracking-[-0.04em] mb-5 text-nearblack"
-            style={{ fontSize: 'clamp(36px, 6vw, 52px)' }}
-          >
+          <h1 className="text-[clamp(48px,8vw,96px)] font-black leading-[0.85] tracking-[-0.04em] mb-5 text-nearblack">
             What are<br />
             you <span className="text-outline-purple">building</span><br />
             right now?
@@ -35,10 +32,10 @@ export function Hero() {
         <div className="flex flex-col items-end gap-4">
           <div className="border-2 border-nearblack px-4 py-4 text-center">
             <div className="text-[28px] font-black leading-none">10€</div>
-            <div className="text-[11px] text-[#888] uppercase tracking-[0.08em] mt-0.5">per month</div>
+            <div className="text-[11px] text-muted-subtle uppercase tracking-[0.08em] mt-0.5">per month</div>
           </div>
           <button
-            className="bg-coral text-white px-5 py-3.5 text-sm font-bold tracking-[0.03em] whitespace-nowrap cursor-pointer"
+            className="bg-coral text-white px-6 py-4 text-sm font-bold tracking-[0.04em] uppercase whitespace-nowrap cursor-pointer transition-all duration-150 hover:bg-nearblack active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
             onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Apply for a spot
@@ -48,17 +45,17 @@ export function Hero() {
 
       {/* Stats bar */}
       <div className="grid grid-cols-3 border-t-2 border-nearblack">
-        <div className="px-5 py-4 border-r border-border-soft">
+        <div className="px-5 py-4 border-r-2 border-nearblack">
           <div className="text-[16px] font-black text-purple leading-none">Founding cohort</div>
-          <div className="text-[10px] text-[#888] uppercase tracking-[0.1em] mt-0.5">be one of the first</div>
+          <div className="text-[10px] text-muted-subtle uppercase tracking-[0.1em] mt-1">be one of the first</div>
         </div>
-        <div className="px-5 py-4 border-r border-border-soft">
+        <div className="px-5 py-4 border-r-2 border-nearblack">
           <div className="text-[16px] font-black text-purple leading-none">1× live</div>
-          <div className="text-[10px] text-[#888] uppercase tracking-[0.1em] mt-0.5">per month</div>
+          <div className="text-[10px] text-muted-subtle uppercase tracking-[0.1em] mt-1">per month</div>
         </div>
         <div className="px-5 py-4">
           <div className="text-[16px] font-black text-purple leading-none">Application only</div>
-          <div className="text-[10px] text-[#888] uppercase tracking-[0.1em] mt-0.5">limited spots</div>
+          <div className="text-[10px] text-muted-subtle uppercase tracking-[0.1em] mt-1">limited spots</div>
         </div>
       </div>
     </section>

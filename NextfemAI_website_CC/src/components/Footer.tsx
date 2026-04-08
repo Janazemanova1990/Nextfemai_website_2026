@@ -1,15 +1,28 @@
 export function Footer() {
   return (
-    <footer className="border-t-2 border-nearblack bg-nearblack px-8 py-4 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <img
-          src="/nextfem-favicon-transparent.png"
-          alt="Nextfem AI"
-          className="h-6 w-auto"
-        />
-        <span className="text-[11px] text-[#6b5f7a]">© 2025 Nextfem AI</span>
+    <footer className="bg-nearblack text-white">
+      <div className="px-8 py-14 border-b border-[#2a2730]">
+        <p className="text-[clamp(28px,4vw,44px)] font-black leading-[0.95] tracking-[-0.03em] mb-5">
+          What are you<br />building?
+        </p>
+        <button
+          onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
+          className="inline-block text-[13px] font-bold uppercase tracking-[0.12em] text-coral border-b-2 border-coral pb-1 cursor-pointer transition-colors hover:text-white hover:border-white"
+        >
+          Apply for a spot →
+        </button>
       </div>
-      <span className="text-[11px] text-[#6b5f7a]">Built with Claude Code</span>
+      <div className="px-8 py-5 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <img
+            src="/nextfem-favicon-transparent.png"
+            alt="Nextfem AI"
+            className="h-6 w-auto"
+          />
+          <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">© 2026 Nextfem AI</span>
+        </div>
+        <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">Builder community</span>
+      </div>
     </footer>
   )
 }

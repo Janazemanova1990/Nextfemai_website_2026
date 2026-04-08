@@ -12,7 +12,10 @@ type FormData = {
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const inputClass =
-  'w-full font-sans text-sm border border-[#d8d4e8] px-3.5 py-3 text-nearblack bg-white outline-none transition-colors focus:border-purple'
+  'w-full font-sans text-sm border-2 border-nearblack px-4 py-3 text-nearblack bg-white outline-none transition-colors focus:bg-bg-cream'
+
+const labelClass =
+  'text-[11px] font-bold tracking-[0.12em] uppercase text-nearblack'
 
 export function ApplicationForm() {
   const [form, setForm] = useState<FormData>({
@@ -47,9 +50,9 @@ export function ApplicationForm() {
 
   if (status === 'success') {
     return (
-      <section id="apply" className="px-8 py-12">
+      <section id="apply" className="px-8 py-12 border-b-2 border-nearblack">
         <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
-        <h2 className="text-[26px] font-extrabold tracking-[-0.02em] text-nearblack mb-4">
+        <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-4">
           Application sent.
         </h2>
         <p className="text-[15px] text-muted-body leading-relaxed max-w-md">
@@ -60,131 +63,132 @@ export function ApplicationForm() {
   }
 
   return (
-    <section id="apply" className="px-8 py-12">
+    <section id="apply" className="px-8 py-12 border-b-2 border-nearblack">
       <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
-      <h2 className="text-[26px] font-extrabold tracking-[-0.02em] text-nearblack mb-7">
-        Tell us about your work.
+      <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
+        Tell us about<br />your work.
       </h2>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-        <div className="grid grid-cols-2 gap-4">
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="firstName" className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-body">
-              First name
+      <div className="border-2 border-nearblack bg-bg-cream p-8 md:p-10">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="firstName" className={labelClass}>
+                First name
+              </label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                required
+                placeholder="Jana"
+                value={form.firstName}
+                onChange={handleChange}
+                className={inputClass}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className={labelClass}>
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="you@example.com"
+                value={form.email}
+                onChange={handleChange}
+                className={inputClass}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label htmlFor="building" className={labelClass}>
+              What are you currently building or experimenting with?
             </label>
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
+            <textarea
+              id="building"
+              name="building"
               required
-              placeholder="Jana"
-              value={form.firstName}
+              rows={3}
+              placeholder="Describe your current project or what you've been experimenting with..."
+              value={form.building}
               onChange={handleChange}
               className={inputClass}
             />
           </div>
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="email" className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-body">
-              Email
+
+          <div className="flex flex-col gap-2">
+            <label htmlFor="tools" className={labelClass}>
+              What tools are you using?
             </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
+            <textarea
+              id="tools"
+              name="tools"
               required
-              placeholder="you@example.com"
-              value={form.email}
+              rows={3}
+              placeholder="e.g. Claude Code, Cursor, n8n, Figma AI, Zapier..."
+              value={form.tools}
               onChange={handleChange}
               className={inputClass}
             />
           </div>
-        </div>
 
-        <div className="flex flex-col gap-1.5">
-          <label htmlFor="building" className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-body">
-            What are you currently building or experimenting with?
-          </label>
-          <textarea
-            id="building"
-            name="building"
-            required
-            rows={3}
-            placeholder="Describe your current project or what you've been experimenting with..."
-            value={form.building}
-            onChange={handleChange}
-            className={inputClass}
-          />
-        </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="wantFromCommunity" className={labelClass}>
+              What do you want from this community?
+            </label>
+            <textarea
+              id="wantFromCommunity"
+              name="wantFromCommunity"
+              required
+              rows={3}
+              placeholder="What's missing for you right now?"
+              value={form.wantFromCommunity}
+              onChange={handleChange}
+              className={inputClass}
+            />
+          </div>
 
-        <div className="flex flex-col gap-1.5">
-          <label htmlFor="tools" className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-body">
-            What tools are you using?
-          </label>
-          <textarea
-            id="tools"
-            name="tools"
-            required
-            rows={3}
-            placeholder="e.g. Claude Code, Cursor, n8n, Figma AI, Zapier..."
-            value={form.tools}
-            onChange={handleChange}
-            className={inputClass}
-          />
-        </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="link" className={labelClass}>
+              Link to something you've built{' '}
+              <span className="font-normal normal-case tracking-normal text-muted-subtle">(optional)</span>
+            </label>
+            <input
+              id="link"
+              name="link"
+              type="url"
+              placeholder="https://..."
+              value={form.link}
+              onChange={handleChange}
+              className={inputClass}
+            />
+          </div>
 
-        <div className="flex flex-col gap-1.5">
-          <label htmlFor="wantFromCommunity" className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-body">
-            What do you want from this community?
-          </label>
-          <textarea
-            id="wantFromCommunity"
-            name="wantFromCommunity"
-            required
-            rows={3}
-            placeholder="What's missing for you right now?"
-            value={form.wantFromCommunity}
-            onChange={handleChange}
-            className={inputClass}
-          />
-        </div>
-
-        <div className="flex flex-col gap-1.5">
-          <label htmlFor="link" className="text-[12px] font-bold tracking-[0.08em] uppercase text-muted-body">
-            Link to something you've built{' '}
-            <span className="font-normal normal-case tracking-normal text-muted-subtle">(optional)</span>
-          </label>
-          <input
-            id="link"
-            name="link"
-            type="url"
-            placeholder="https://..."
-            value={form.link}
-            onChange={handleChange}
-            className={inputClass}
-          />
-        </div>
-
-        <div className="flex items-center gap-5 pt-2">
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="bg-coral text-white px-8 py-3.5 text-[15px] font-bold cursor-pointer disabled:opacity-60"
+            className="w-full bg-coral text-white py-5 text-base font-bold uppercase tracking-[0.04em] cursor-pointer transition-all duration-150 hover:bg-nearblack active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === 'loading' ? 'Sending…' : 'Send application'}
           </button>
-          <div>
+
+          <div className="text-center">
             {status === 'error' ? (
               <p className="text-[12px] text-red-500 leading-relaxed">
                 Something went wrong. Please try again.
               </p>
             ) : (
-              <p className="text-[12px] text-muted-subtle leading-relaxed">
-                We read every application.<br />You'll hear back within a few days.
+              <p className="text-[12px] text-muted-subtle leading-relaxed uppercase tracking-[0.1em]">
+                We read every application. You'll hear back within a few days.
               </p>
             )}
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </section>
   )
 }

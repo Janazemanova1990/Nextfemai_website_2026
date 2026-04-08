@@ -11,30 +11,59 @@ const noItems = [
   'Want a community that will teach you from zero',
 ]
 
+const CheckIcon = () => (
+  <svg
+    className="w-3.5 h-3.5 flex-shrink-0 mt-[5px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#0e0d12"
+    strokeWidth="3"
+    strokeLinecap="square"
+  >
+    <polyline points="4 12 10 18 20 6" />
+  </svg>
+)
+
+const CrossIcon = () => (
+  <svg
+    className="w-3.5 h-3.5 flex-shrink-0 mt-[5px]"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#9d93ac"
+    strokeWidth="3"
+    strokeLinecap="square"
+  >
+    <line x1="5" y1="5" x2="19" y2="19" />
+    <line x1="19" y1="5" x2="5" y2="19" />
+  </svg>
+)
+
 export function IsThisForYou() {
   return (
-    <section className="px-8 py-12 border-b border-border-soft bg-bg-off">
+    <section className="px-8 py-12 border-b-2 border-nearblack bg-bg-off">
       <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         Is this for you?
       </p>
-      <h2 className="text-[26px] font-extrabold tracking-[-0.02em] text-nearblack mb-7">
+      <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
         Honest check.
       </h2>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 gap-8">
         {/* Yes column */}
         <div>
           <h3
-            className="text-[12px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-[#3a8a88]"
+            className="text-[12px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-nearblack"
             style={{ borderBottom: '2px solid #9fd7d5' }}
           >
             Yes, if you —
           </h3>
-          {yesItems.map((item) => (
+          {yesItems.map((item, i) => (
             <div
               key={item}
-              className="flex gap-2.5 items-start py-2 border-b border-dotted border-[#e0dcea] last:border-0 text-[13px] leading-relaxed text-[#2a4a48]"
+              className={`flex gap-3 items-start py-3 text-[15px] leading-[1.5] text-nearblack ${
+                i < yesItems.length - 1 ? 'border-b-2 border-nearblack' : ''
+              }`}
             >
-              <span className="flex-shrink-0 mt-0.5">→</span>
+              <CheckIcon />
               <span>{item}</span>
             </div>
           ))}
@@ -42,18 +71,17 @@ export function IsThisForYou() {
 
         {/* Not yet column */}
         <div>
-          <h3
-            className="text-[12px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-[#999]"
-            style={{ borderBottom: '2px solid #e0dcea' }}
-          >
+          <h3 className="text-[12px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-muted-subtle border-b-2 border-border-soft">
             Not yet, if you —
           </h3>
-          {noItems.map((item) => (
+          {noItems.map((item, i) => (
             <div
               key={item}
-              className="flex gap-2.5 items-start py-2 border-b border-dotted border-[#e0dcea] last:border-0 text-[13px] leading-relaxed text-[#999]"
+              className={`flex gap-3 items-start py-3 text-[15px] leading-[1.5] text-muted-subtle ${
+                i < noItems.length - 1 ? 'border-b-2 border-border-soft' : ''
+              }`}
             >
-              <span className="flex-shrink-0 mt-1">×</span>
+              <CrossIcon />
               <span>{item}</span>
             </div>
           ))}

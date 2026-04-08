@@ -7,7 +7,9 @@
   --color-nearblack: #0e0d12;
   --color-muted-body: #5a5066;
   --color-muted-subtle: #9d93ac;
+  --color-ink-ghost: #6b5f7a;
   --color-bg-off: #f8f7fc;
+  --color-bg-cream: #faf8f2;
   --color-border-soft: #e8e4f4;
   --font-family-sans: "DM Sans", sans-serif;
 }
@@ -19,4 +21,15 @@
 
 * {
   border-radius: 0 !important;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  color: var(--color-nearblack);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-purple);
+  color: #fff;
 }

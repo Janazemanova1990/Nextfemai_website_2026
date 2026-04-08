@@ -7,8 +7,8 @@ import { Footer } from './components/Footer'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#f0eef8] py-8 px-4">
-      <div className="bg-white max-w-[860px] mx-auto border-2 border-nearblack">
+    <div className="min-h-screen bg-bg-cream py-8 px-4 md:py-12">
+      <div className="bg-white max-w-[860px] mx-auto border-2 border-nearblack shadow-[8px_8px_0_0_#0e0d12]">
         <Hero />
         <HowItWorks />
         <IsThisForYou />

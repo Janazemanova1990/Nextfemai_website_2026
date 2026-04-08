@@ -18,27 +18,27 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="px-8 py-12 border-b border-border-soft">
+    <section className="px-8 py-12 border-b-2 border-nearblack">
       <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         How it works
       </p>
-      <h2 className="text-[26px] font-extrabold tracking-[-0.02em] text-nearblack mb-7">
+      <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
         Simple. No fluff.
       </h2>
       <div>
         {steps.map((step, i) => (
           <div
             key={step.num}
-            className={`grid grid-cols-[48px_1fr] gap-4 items-start py-4 ${
-              i < steps.length - 1 ? 'border-b border-border-soft' : ''
+            className={`grid grid-cols-[auto_1fr] gap-8 items-baseline py-8 ${
+              i < steps.length - 1 ? 'border-b-2 border-nearblack' : 'pb-0'
             }`}
           >
-            <span className="text-[13px] font-black text-purple tracking-[0.05em] pt-0.5">
+            <span className="text-[72px] font-black text-purple leading-none tracking-[-0.04em]">
               {step.num}
             </span>
             <div>
-              <h3 className="text-[15px] font-bold text-nearblack mb-1">{step.title}</h3>
-              <p className="text-[13px] text-muted-body leading-relaxed">{step.body}</p>
+              <h3 className="text-[20px] font-bold text-nearblack mb-2">{step.title}</h3>
+              <p className="text-[15px] text-muted-body leading-[1.6] max-w-[440px]">{step.body}</p>
             </div>
           </div>
         ))}
