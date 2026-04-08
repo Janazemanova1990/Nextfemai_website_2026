@@ -56,7 +56,7 @@ export function ApplicationForm() {
         id="apply"
         ref={ref}
         data-revealed={revealed}
-        className="section-reveal px-8 py-12 border-b-2 border-nearblack"
+        className="section-reveal px-4 sm:px-8 py-12 border-b-2 border-nearblack"
       >
         <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
         <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-4">
@@ -74,7 +74,7 @@ export function ApplicationForm() {
       id="apply"
       ref={ref}
       data-revealed={revealed}
-      className="section-reveal px-8 py-12 border-b-2 border-nearblack"
+      className="section-reveal px-4 sm:px-8 py-12 border-b-2 border-nearblack"
     >
       <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
       <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
@@ -83,7 +83,7 @@ export function ApplicationForm() {
 
       <div className="border-2 border-nearblack bg-bg-cream p-8 md:p-10">
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col gap-2">
               <label htmlFor="firstName" className={labelClass}>
                 First name

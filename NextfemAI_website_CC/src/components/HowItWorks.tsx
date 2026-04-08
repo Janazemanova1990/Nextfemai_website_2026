@@ -23,6 +23,7 @@ export function HowItWorks() {
   const { ref, revealed } = useReveal<HTMLElement>()
   return (
     <section
+      id="how-it-works"
       ref={ref}
       data-revealed={revealed}
       className="how-it-works px-8 py-12 border-b-2 border-nearblack"

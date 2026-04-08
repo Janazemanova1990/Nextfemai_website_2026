@@ -49,6 +49,7 @@ export function WhatYouGet() {
   const { ref, revealed } = useReveal<HTMLElement>()
   return (
     <section
+      id="what-you-get"
       ref={ref}
       data-revealed={revealed}
       className="section-reveal px-8 py-12 border-b-2 border-nearblack"
@@ -60,11 +61,11 @@ export function WhatYouGet() {
         One offer.<br />Built for builders.
       </h2>
 
-      <div className="grid grid-cols-2 border-2 border-nearblack mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 border border-border-soft sm:border-0 mb-8">
         {cards.map((card, i) => (
           <div
             key={card.title}
-            className={`group p-7 bg-white text-nearblack hover:bg-nearblack hover:text-white ${i % 2 === 0 ? 'border-r-2 border-nearblack' : ''} ${i < 2 ? 'border-b-2 border-nearblack' : ''}`}
+            className={`group p-7 bg-white text-nearblack hover:bg-nearblack hover:text-white ${i < cards.length - 1 ? 'border-b border-border-soft' : ''} sm:border sm:border-border-soft`}
           >
             <div className="mb-4">{card.icon}</div>
             <h3 className="text-[20px] font-bold mb-2">{card.title}</h3>

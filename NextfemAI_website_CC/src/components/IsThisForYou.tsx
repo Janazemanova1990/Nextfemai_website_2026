@@ -44,6 +44,7 @@ export function IsThisForYou() {
   const { ref, revealed } = useReveal<HTMLElement>()
   return (
     <section
+      id="for-you"
       ref={ref}
       data-revealed={revealed}
       className="section-reveal px-8 py-12 border-b-2 border-nearblack bg-bg-off"
@@ -54,7 +55,7 @@ export function IsThisForYou() {
       <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
         Honest check.
       </h2>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {/* Yes column */}
         <div>
           <h3

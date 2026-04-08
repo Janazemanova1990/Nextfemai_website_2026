@@ -1,23 +1,77 @@
+import { useState } from 'react'
+
+const navItems = [
+  { label: 'How it works', id: 'how-it-works' },
+  { label: 'Is this for you?', id: 'for-you' },
+  { label: 'What you get', id: 'what-you-get' },
+  { label: 'Apply', id: 'apply' },
+]
+
 export function Hero() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const scrollToId = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      const offset = 200
+      const top = element.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+  }
+
+  const handleNavClick = (id: string) => {
+    setMenuOpen(false)
+    scrollToId(id)
+  }
+
   return (
     <section className="border-b-2 border-nearblack">
       {/* Top bar */}
-      <div className="flex items-stretch border-b-2 border-nearblack">
-        <div className="flex-1 px-5 py-2.5 border-r-2 border-nearblack flex items-center">
+      <div className="flex flex-col sm:flex-row sm:items-stretch border-b-2 border-nearblack">
+        <div className="flex-1 px-5 py-4 sm:py-2.5 sm:border-r-2 sm:border-nearblack flex items-center justify-between">
           <img
             src="/nextfem-horizontal-transparent.png"
             alt="Nextfem AI"
             className="h-10 w-auto"
           />
+          <button
+            type="button"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            className="block sm:hidden p-2 -mr-2 cursor-pointer"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e0d12" strokeWidth="2.5" strokeLinecap="square">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
         </div>
-        <div className="flex items-center gap-1.5 px-5 bg-purple text-white text-[11px] font-black tracking-[0.1em] uppercase">
+        <div className="w-full sm:w-auto flex items-center justify-end sm:justify-start gap-1.5 px-5 py-2.5 sm:py-0 bg-purple text-white text-[11px] font-black tracking-[0.1em] uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           Accepting applications
         </div>
       </div>
 
+      {/* Mobile dropdown menu */}
+      {menuOpen && (
+        <div className="block sm:hidden bg-white border-b-2 border-nearblack">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => handleNavClick(item.id)}
+              className="w-full text-left px-5 py-4 text-[15px] font-bold tracking-[0.04em] uppercase text-nearblack border-b border-nearblack last:border-b-0 hover:bg-bg-cream cursor-pointer"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Main area */}
-      <div className="px-8 pt-10 pb-8 grid grid-cols-[1fr_auto] gap-6 items-end">
+      <div className="px-8 pt-10 pb-8 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-6 items-stretch sm:items-end">
         <div>
           <h1 className="text-[clamp(48px,8vw,96px)] font-black leading-[0.85] tracking-[-0.04em] mb-5 text-nearblack">
             <span className="hero-line hero-line-1">What are</span>
@@ -29,15 +83,15 @@ export function Hero() {
             automations, agents. Application only, limited spots.
           </p>
         </div>
-        <div className="hero-fade-up flex flex-col items-end gap-4">
-          <div className="border-2 border-nearblack px-4 py-4 text-center">
+        <div className="hero-fade-up flex flex-col items-stretch sm:items-end gap-4">
+          <div className="w-full sm:w-auto border-2 border-nearblack px-4 py-3.5 sm:py-4 flex flex-row sm:flex-col items-baseline sm:items-center justify-center gap-1.5 sm:gap-0 text-center">
             <div className="text-[28px] font-black leading-none">10€</div>
-            <div className="text-[11px] text-muted-subtle uppercase tracking-[0.08em] mt-0.5">per month</div>
+            <div className="text-[11px] text-muted-subtle uppercase tracking-[0.08em] sm:mt-0.5">per month</div>
           </div>
           <button
-            className="bg-coral text-white px-6 py-4 text-sm font-bold tracking-[0.04em] uppercase whitespace-nowrap cursor-pointer transition-all duration-150 hover:bg-nearblack active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+            className="w-full sm:w-auto bg-coral text-white px-6 py-4 text-sm font-bold tracking-[0.04em] uppercase whitespace-nowrap cursor-pointer transition-all duration-150 hover:bg-nearblack active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
             style={{ boxShadow: '4px 4px 0px #0e0d12' }}
-            onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => scrollToId('apply')}
           >
             Apply for a spot
           </button>
@@ -45,8 +99,8 @@ export function Hero() {
       </div>
 
       {/* Stats bar */}
-      <div className="hero-wipe-right grid grid-cols-3 border-t-2 border-nearblack">
-        <div className="px-5 py-4 border-r-2 border-nearblack">
+      <div className="hero-wipe-right grid grid-cols-1 sm:grid-cols-3 border-t-2 border-nearblack">
+        <div className="px-5 py-4 border-b-2 sm:border-b-0 sm:border-r-2 border-nearblack">
           <svg
             className="mb-2"
             width="20"
@@ -65,7 +119,7 @@ export function Hero() {
           <div className="text-[20px] font-black text-purple leading-none">Founding cohort</div>
           <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">be one of the first</div>
         </div>
-        <div className="px-5 py-4 border-r-2 border-nearblack">
+        <div className="px-5 py-4 border-b-2 sm:border-b-0 sm:border-r-2 border-nearblack">
           <svg
             className="mb-2"
             width="20"
