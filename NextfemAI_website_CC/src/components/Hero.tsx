@@ -7,10 +7,10 @@ export function Hero() {
           <img
             src="/nextfem-horizontal-transparent.png"
             alt="Nextfem AI"
-            className="h-8 w-auto"
+            className="h-10 w-auto"
           />
         </div>
-        <div className="flex items-center gap-1.5 px-5 bg-purple text-white text-[11px] font-semibold tracking-[0.1em] uppercase">
+        <div className="flex items-center gap-1.5 px-5 bg-purple text-white text-[11px] font-black tracking-[0.1em] uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           Accepting applications
         </div>
@@ -36,6 +36,7 @@ export function Hero() {
           </div>
           <button
             className="bg-coral text-white px-6 py-4 text-sm font-bold tracking-[0.04em] uppercase whitespace-nowrap cursor-pointer transition-all duration-150 hover:bg-nearblack active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+            style={{ boxShadow: '4px 4px 0px #0e0d12' }}
             onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Apply for a spot
@@ -46,16 +47,57 @@ export function Hero() {
       {/* Stats bar */}
       <div className="hero-wipe-right grid grid-cols-3 border-t-2 border-nearblack">
         <div className="px-5 py-4 border-r-2 border-nearblack">
-          <div className="text-[16px] font-black text-purple leading-none">Founding cohort</div>
-          <div className="text-[10px] text-muted-subtle uppercase tracking-[0.1em] mt-1">be one of the first</div>
+          <svg
+            className="mb-2"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ada2cc"
+            strokeWidth="2"
+            strokeLinecap="square"
+          >
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          <div className="text-[20px] font-black text-purple leading-none">Founding cohort</div>
+          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">be one of the first</div>
         </div>
         <div className="px-5 py-4 border-r-2 border-nearblack">
-          <div className="text-[16px] font-black text-purple leading-none">1× live</div>
-          <div className="text-[10px] text-muted-subtle uppercase tracking-[0.1em] mt-1">per month</div>
+          <svg
+            className="mb-2"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ada2cc"
+            strokeWidth="2"
+            strokeLinecap="square"
+          >
+            <polygon points="23 7 16 12 23 17 23 7" />
+            <rect x="1" y="5" width="15" height="14" />
+          </svg>
+          <div className="text-[20px] font-black text-purple leading-none">1× live</div>
+          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">per month</div>
         </div>
         <div className="px-5 py-4">
-          <div className="text-[16px] font-black text-purple leading-none">Application only</div>
-          <div className="text-[10px] text-muted-subtle uppercase tracking-[0.1em] mt-1">limited spots</div>
+          <svg
+            className="mb-2"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ada2cc"
+            strokeWidth="2"
+            strokeLinecap="square"
+          >
+            <rect x="3" y="11" width="18" height="11" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <div className="text-[20px] font-black text-purple leading-none">Application only</div>
+          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">limited spots</div>
         </div>
       </div>
     </section>

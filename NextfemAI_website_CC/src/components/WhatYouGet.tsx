@@ -53,7 +53,7 @@ export function WhatYouGet() {
       data-revealed={revealed}
       className="section-reveal px-8 py-12 border-b-2 border-nearblack"
     >
-      <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
+      <p className="text-[13px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         What you get
       </p>
       <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
@@ -67,8 +67,8 @@ export function WhatYouGet() {
             className={`group p-7 bg-white text-nearblack hover:bg-nearblack hover:text-white ${i % 2 === 0 ? 'border-r-2 border-nearblack' : ''} ${i < 2 ? 'border-b-2 border-nearblack' : ''}`}
           >
             <div className="mb-4">{card.icon}</div>
-            <h3 className="text-[18px] font-bold mb-2">{card.title}</h3>
-            <p className="text-[13px] text-muted-body group-hover:text-white leading-[1.6]">{card.body}</p>
+            <h3 className="text-[20px] font-bold mb-2">{card.title}</h3>
+            <p className="text-[16px] text-muted-body group-hover:text-white leading-[1.6]">{card.body}</p>
           </div>
         ))}
       </div>

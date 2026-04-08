@@ -27,7 +27,7 @@ export function HowItWorks() {
       data-revealed={revealed}
       className="how-it-works px-8 py-12 border-b-2 border-nearblack"
     >
-      <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
+      <p className="text-[13px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         How it works
       </p>
       <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">

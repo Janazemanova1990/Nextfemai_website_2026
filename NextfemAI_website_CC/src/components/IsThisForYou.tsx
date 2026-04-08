@@ -48,7 +48,7 @@ export function IsThisForYou() {
       data-revealed={revealed}
       className="section-reveal px-8 py-12 border-b-2 border-nearblack bg-bg-off"
     >
-      <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
+      <p className="text-[13px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         Is this for you?
       </p>
       <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
@@ -58,7 +58,7 @@ export function IsThisForYou() {
         {/* Yes column */}
         <div>
           <h3
-            className="text-[12px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-nearblack"
+            className="text-[14px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-nearblack"
             style={{ borderBottom: '2px solid #9fd7d5' }}
           >
             Yes, if you —
@@ -78,7 +78,7 @@ export function IsThisForYou() {
 
         {/* Not yet column */}
         <div>
-          <h3 className="text-[12px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-muted-subtle border-b-2 border-border-soft">
+          <h3 className="text-[14px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-muted-subtle border-b-2 border-border-soft">
             Not yet, if you —
           </h3>
           {noItems.map((item, i) => (

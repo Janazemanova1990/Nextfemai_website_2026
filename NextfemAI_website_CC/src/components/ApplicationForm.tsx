@@ -13,10 +13,10 @@ type FormData = {
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const inputClass =
-  'w-full font-sans text-sm border-2 border-nearblack px-4 py-3 text-nearblack bg-white outline-none transition-colors focus:bg-bg-cream'
+  'w-full font-sans text-[15px] border-2 border-nearblack px-4 py-3 text-nearblack bg-white outline-none transition-colors focus:bg-bg-cream'
 
 const labelClass =
-  'text-[11px] font-bold tracking-[0.12em] uppercase text-nearblack'
+  'text-[13px] font-bold tracking-[0.12em] uppercase text-nearblack'
 
 export function ApplicationForm() {
   const { ref, revealed } = useReveal<HTMLElement>()
@@ -183,6 +183,7 @@ export function ApplicationForm() {
           <button
             type="submit"
             disabled={status === 'loading'}
+            style={{ boxShadow: '4px 4px 0px #0e0d12' }}
             className="w-full bg-coral text-white py-5 text-base font-bold uppercase tracking-[0.04em] cursor-pointer transition-all duration-150 hover:bg-nearblack active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === 'loading' ? 'Sending…' : 'Send application'}
@@ -190,11 +191,11 @@ export function ApplicationForm() {
 
           <div className="text-center">
             {status === 'error' ? (
-              <p className="text-[12px] text-red-500 leading-relaxed">
+              <p className="text-[14px] text-red-500 leading-relaxed">
                 Something went wrong. Please try again.
               </p>
             ) : (
-              <p className="text-[12px] text-muted-subtle leading-relaxed uppercase tracking-[0.1em]">
+              <p className="text-[14px] text-muted-subtle leading-relaxed uppercase tracking-[0.1em]">
                 We read every application. You'll hear back within a few days.
               </p>
             )}
