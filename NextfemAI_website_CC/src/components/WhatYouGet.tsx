@@ -75,7 +75,7 @@ export function WhatYouGet() {
       </div>
 
       {/* Price bar */}
-      <div className="bg-nearblack border-2 border-nearblack px-6 py-6 flex flex-col items-center text-center gap-5 sm:flex-row sm:items-center sm:justify-between sm:text-left sm:gap-6">
+      <div className="bg-brand-purple border-2 border-nearblack px-6 py-6 flex flex-col items-center text-center gap-5 sm:flex-row sm:items-center sm:justify-between sm:text-left sm:gap-6">
         <p className="text-[13px] text-white leading-relaxed uppercase tracking-[0.08em] font-semibold">
           Keeps the community running<br />and the group committed.
         </p>
