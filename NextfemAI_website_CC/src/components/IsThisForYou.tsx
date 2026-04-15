@@ -1,14 +1,14 @@
 import { useReveal } from '../hooks/useReveal'
 
 const yesItems = [
-  "Are already building something with AI, even if it's messy or unfinished",
-  'Have used Claude Code, Cursor, Codex, or vibe coded anything',
-  'Want peers who get the context — not mentors, not an audience',
+  "Are actively working with AI on practical use cases, even if it's messy or unfinished",
+  'Use AI tools intentionally in your daily work — think custom GPTs, Skills, Claude Cowork, Claude Code, automations, or similar',
+  "Want to get inspired by what other women are doing with AI — and get feedback on what you're working on",
   "Have wins you want to share and questions you can't Google",
 ]
 
 const noItems = [
-  'Have never tried AI-assisted building or heard of vibe coding',
+  'Are still figuring out the basics of Claude or ChatGPT',
   'Are looking for tutorials, courses, or beginner support',
   'Want a community that will teach you from zero',
 ]

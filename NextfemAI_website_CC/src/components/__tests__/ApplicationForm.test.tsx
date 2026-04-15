@@ -15,7 +15,7 @@ it('renders all 6 form fields', () => {
   render(<ApplicationForm />)
   expect(screen.getByLabelText(/first name/i)).toBeInTheDocument()
   expect(screen.getByLabelText(/email/i)).toBeInTheDocument()
-  expect(screen.getByLabelText(/currently building/i)).toBeInTheDocument()
+  expect(screen.getByLabelText(/currently working on/i)).toBeInTheDocument()
   expect(screen.getByLabelText(/tools are you using/i)).toBeInTheDocument()
   expect(screen.getByLabelText(/what do you want from this community/i)).toBeInTheDocument()
   expect(screen.getByLabelText(/link to something/i)).toBeInTheDocument()
@@ -27,11 +27,11 @@ it('shows success message after successful submission', async () => {
   render(<ApplicationForm />)
   fireEvent.change(screen.getByLabelText(/first name/i), { target: { value: 'Jana' } })
   fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'jana@example.com' } })
-  fireEvent.change(screen.getByLabelText(/currently building/i), { target: { value: 'An AI tool' } })
+  fireEvent.change(screen.getByLabelText(/currently working on/i), { target: { value: 'An AI tool' } })
   fireEvent.change(screen.getByLabelText(/tools are you using/i), { target: { value: 'Claude Code' } })
   fireEvent.change(screen.getByLabelText(/what do you want from this community/i), { target: { value: 'Peers' } })
 
-  fireEvent.click(screen.getByRole('button', { name: /send application/i }))
+  fireEvent.click(screen.getByRole('button', { name: /apply to join/i }))
 
   await waitFor(() => {
     expect(screen.getByText(/application sent/i)).toBeInTheDocument()
@@ -44,11 +44,11 @@ it('shows error message when webhook fails', async () => {
   render(<ApplicationForm />)
   fireEvent.change(screen.getByLabelText(/first name/i), { target: { value: 'Jana' } })
   fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'jana@example.com' } })
-  fireEvent.change(screen.getByLabelText(/currently building/i), { target: { value: 'An AI tool' } })
+  fireEvent.change(screen.getByLabelText(/currently working on/i), { target: { value: 'An AI tool' } })
   fireEvent.change(screen.getByLabelText(/tools are you using/i), { target: { value: 'Claude Code' } })
   fireEvent.change(screen.getByLabelText(/what do you want from this community/i), { target: { value: 'Peers' } })
 
-  fireEvent.click(screen.getByRole('button', { name: /send application/i }))
+  fireEvent.click(screen.getByRole('button', { name: /apply to join/i }))
 
   await waitFor(() => {
     expect(screen.getByText(/something went wrong/i)).toBeInTheDocument()
@@ -61,11 +61,11 @@ it('POSTs form data as JSON to the webhook URL', async () => {
   render(<ApplicationForm />)
   fireEvent.change(screen.getByLabelText(/first name/i), { target: { value: 'Jana' } })
   fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'jana@example.com' } })
-  fireEvent.change(screen.getByLabelText(/currently building/i), { target: { value: 'An AI tool' } })
+  fireEvent.change(screen.getByLabelText(/currently working on/i), { target: { value: 'An AI tool' } })
   fireEvent.change(screen.getByLabelText(/tools are you using/i), { target: { value: 'Claude Code' } })
   fireEvent.change(screen.getByLabelText(/what do you want from this community/i), { target: { value: 'Peers' } })
 
-  fireEvent.click(screen.getByRole('button', { name: /send application/i }))
+  fireEvent.click(screen.getByRole('button', { name: /apply to join/i }))
 
   await waitFor(() => {
     expect(globalThis.fetch).toHaveBeenCalledWith(

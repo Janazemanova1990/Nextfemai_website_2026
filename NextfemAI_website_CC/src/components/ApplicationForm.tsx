@@ -99,7 +99,7 @@ export function ApplicationForm() {
         data-revealed={revealed}
         className="section-reveal px-4 sm:px-8 py-12 border-b-2 border-nearblack"
       >
-        <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
+        <p className="text-[13px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
         <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-4">
           Application sent.
         </h2>
@@ -117,7 +117,7 @@ export function ApplicationForm() {
       data-revealed={revealed}
       className="section-reveal px-4 sm:px-8 py-12 border-b-2 border-nearblack"
     >
-      <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
+      <p className="text-[13px] font-bold tracking-[0.2em] uppercase text-purple mb-3">Apply</p>
       <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
         Tell us about<br />your work.
       </h2>
@@ -159,14 +159,14 @@ export function ApplicationForm() {
 
           <div className="flex flex-col gap-2">
             <label htmlFor="building" className={labelClass}>
-              What are you currently building or experimenting with?
+              What are you currently working on or experimenting with?
             </label>
             <textarea
               id="building"
               name="building"
               required
               rows={3}
-              placeholder="Describe your current project or what you've been experimenting with..."
+              placeholder="A recent use case, a project, or something you're trying to figure out..."
               value={form.building}
               onChange={handleChange}
               className={inputClass}
@@ -227,7 +227,7 @@ export function ApplicationForm() {
             style={{ boxShadow: '4px 4px 0px #0e0d12' }}
             className="w-full bg-coral text-white py-5 text-base font-bold uppercase tracking-[0.04em] cursor-pointer transition-all duration-150 hover:bg-nearblack active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {status === 'loading' ? 'Sending…' : 'Send application'}
+            {status === 'loading' ? 'Sending…' : 'Apply to join'}
           </button>
 
           <div className="text-center">

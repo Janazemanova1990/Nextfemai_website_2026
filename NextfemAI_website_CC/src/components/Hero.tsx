@@ -73,14 +73,14 @@ export function Hero() {
       {/* Main area */}
       <div className="px-8 pt-10 pb-8 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-6 items-stretch sm:items-end">
         <div>
-          <h1 className="text-[clamp(48px,8vw,96px)] font-black leading-[0.85] tracking-[-0.04em] mb-5 text-nearblack">
+          <h1 className="text-[clamp(40px,6.5vw,76px)] font-black leading-[0.95] tracking-[-0.04em] mb-5 text-nearblack">
             <span className="hero-line hero-line-1">What are</span>
-            <span className="hero-line hero-line-2">you <span className="text-outline-purple building-reveal">building</span></span>
-            <span className="hero-line hero-line-3">right now?</span>
+            <span className="hero-line hero-line-2">you <span className="text-outline-purple building-reveal">working on</span></span>
+            <span className="hero-line hero-line-3">with AI right now?</span>
           </h1>
           <p className="text-[15px] text-muted-body leading-relaxed max-w-[340px]">
-            A peer community for women already building with AI — vibe coding,
-            automations, agents. Application only, limited spots.
+            A peer community for women actively working with AI on practical
+            use cases — Cohort 2. Application only, limited spots.
           </p>
         </div>
         <div className="hero-fade-up flex flex-col items-stretch sm:items-end gap-4">
@@ -116,8 +116,8 @@ export function Hero() {
             <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
           </svg>
-          <div className="text-[20px] font-black text-purple leading-none">Founding cohort</div>
-          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">be one of the first</div>
+          <div className="text-[20px] font-black text-purple leading-none">Cohort 2</div>
+          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">now open</div>
         </div>
         <div className="px-5 py-4 border-b-2 sm:border-b-0 sm:border-r-2 border-nearblack">
           <svg
@@ -133,7 +133,7 @@ export function Hero() {
             <polygon points="23 7 16 12 23 17 23 7" />
             <rect x="1" y="5" width="15" height="14" />
           </svg>
-          <div className="text-[20px] font-black text-purple leading-none">1× live</div>
+          <div className="text-[20px] font-black text-purple leading-none">2× live</div>
           <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">per month</div>
         </div>
         <div className="px-5 py-4">

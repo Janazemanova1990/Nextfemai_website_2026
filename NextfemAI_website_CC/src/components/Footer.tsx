@@ -10,7 +10,7 @@ export function Footer() {
     >
       <div className="px-8 py-14 border-b border-[#2a2730]">
         <p className="text-[clamp(28px,4vw,44px)] font-black leading-[0.95] tracking-[-0.03em] mb-5">
-          What are you<br />building?
+          What are you<br />working on?
         </p>
         <button
           onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
@@ -28,7 +28,7 @@ export function Footer() {
           />
           <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">© 2026 Nextfem AI</span>
         </div>
-        <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">Builder community</span>
+        <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">Peer community</span>
       </div>
     </footer>
   )
