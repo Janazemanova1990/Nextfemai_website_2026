@@ -21,7 +21,27 @@ vibe coding, Claude Code, automations, agents. Not for beginners.
 ## Form Backend
 - Form POSTs JSON to VITE_FORM_WEBHOOK_URL (n8n webhook)
 - No backend in this app
-- On submit: Telegram notification to Jana → manual review → welcome email to accepted applicant
+- On submit: Telegram notification to Jana → manual review in Notion → welcome email is manual for now (not yet wired into n8n)
+
+## n8n workflow
+- Workflow JSON lives at n8n/nextfem-application-intake.json (source of truth for the automation)
+- n8n instance: self-hosted at n8n.srv1408736.hstgr.cloud
+- Webhook path: /webhook/nextfem-application
+- Flow: Webhook → parallel fan-out to Notion (save applicant, Status="New") + Telegram (ping Jana)
+
+## Form field ↔ Notion column contract
+Form field names in src/components/ApplicationForm.tsx are contract-bound to Notion column mappings in the n8n workflow. Renaming either side without updating the other breaks submission writes.
+
+| Form field (camelCase) | Notion column |
+|---|---|
+| firstName | First name (title) |
+| email | Email |
+| building | Building |
+| tools | Tools |
+| wantFromCommunity | Want from community |
+| link | Link (optional — n8n skips if empty via "Ignore If Empty") |
+
+If you rename any form field, update the matching expression in the Notion node of the n8n workflow AND the Notion column, or submissions fail with a validation error.
 
 ## Brand
 - Purple: #ada2cc — primary accent, eyebrows, icons

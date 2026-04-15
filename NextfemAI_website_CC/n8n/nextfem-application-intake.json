@@ -1,0 +1,137 @@
+{
+  "name": "NextFem AI - Application Intake",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "nextfem-application",
+        "responseMode": "onReceived",
+        "responseCode": 200,
+        "responseData": "noData",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST, OPTIONS"
+              },
+              {
+                "name": "Access-Control-Allow-Headers",
+                "value": "Content-Type"
+              }
+            ]
+          }
+        }
+      },
+      "id": "8c4b7e2a-1d6f-4a9e-9b3a-7e1c2d8f4a01",
+      "name": "Webhook - Application form",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 320],
+      "webhookId": "nextfem-application"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "create",
+        "databaseId": {
+          "__rl": true,
+          "value": "6bc30d4d-dc1d-44a7-a1a7-5f988fa15d1d",
+          "mode": "id"
+        },
+        "title": "={{ $json.body.firstName }}",
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Email|email",
+              "emailValue": "={{ $json.body.email }}"
+            },
+            {
+              "key": "Building|rich_text",
+              "textContent": "={{ $json.body.building }}"
+            },
+            {
+              "key": "Tools|rich_text",
+              "textContent": "={{ $json.body.tools }}"
+            },
+            {
+              "key": "Want from community|rich_text",
+              "textContent": "={{ $json.body.wantFromCommunity }}"
+            },
+            {
+              "key": "Link|url",
+              "urlValue": "={{ $json.body.link }}"
+            },
+            {
+              "key": "Status|select",
+              "selectValue": "New"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1f9d3e4b-2a8c-4f6e-8d1b-5c2a7f9e3b04",
+      "name": "Notion - Save application",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [560, 240],
+      "credentials": {
+        "notionApi": {
+          "id": "REPLACE_WITH_NOTION_CREDENTIAL_ID",
+          "name": "Notion API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "REPLACE_WITH_YOUR_TELEGRAM_CHAT_ID",
+        "text": "=\ud83d\udce9 *New NextFem AI application*\n\n*Name:* {{ $json.body.firstName }}\n*Email:* {{ $json.body.email }}\n\n*Building:*\n{{ $json.body.building }}\n\n*Tools:* {{ $json.body.tools }}\n\n*Wants from community:*\n{{ $json.body.wantFromCommunity }}\n\n*Link:* {{ $json.body.link || '\u2014' }}\n\nReview in Notion: https://www.notion.so/6bc30d4ddc1d44a7a1a75f988fa15d1d",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "3e7a2b5c-4d6f-4e8a-9c2b-6f1e8d3a7b09",
+      "name": "Telegram - Notify Jana",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [560, 420],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_TELEGRAM_CREDENTIAL_ID",
+          "name": "Telegram Bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook - Application form": {
+      "main": [
+        [
+          {
+            "node": "Notion - Save application",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Telegram - Notify Jana",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
