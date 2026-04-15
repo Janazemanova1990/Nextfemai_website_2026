@@ -1,6 +1,7 @@
 import { Hero } from './components/Hero'
 import { HowItWorks } from './components/HowItWorks'
 import { IsThisForYou } from './components/IsThisForYou'
+import { WhoBehindThis } from './components/WhoBehindThis'
 import { WhatYouGet } from './components/WhatYouGet'
 import { ApplicationForm } from './components/ApplicationForm'
 import { Footer } from './components/Footer'
@@ -12,6 +13,7 @@ export default function App() {
         <Hero />
         <HowItWorks />
         <IsThisForYou />
+        <WhoBehindThis />
         <WhatYouGet />
         <ApplicationForm />
         <Footer />

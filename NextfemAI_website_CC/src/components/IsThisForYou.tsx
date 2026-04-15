@@ -10,7 +10,7 @@ const yesItems = [
 const noItems = [
   'Are still figuring out the basics of Claude or ChatGPT',
   'Are looking for tutorials, courses, or beginner support',
-  'Want a community that will teach you from zero',
+  "Are looking for a place to learn AI from scratch — you'd have a better experience somewhere built for beginners.",
 ]
 
 const CheckIcon = () => (
@@ -18,7 +18,7 @@ const CheckIcon = () => (
     className="w-3.5 h-3.5 flex-shrink-0 mt-[5px]"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="#0e0d12"
+    stroke="#9fd7d5"
     strokeWidth="3"
     strokeLinecap="square"
   >
@@ -31,7 +31,7 @@ const CrossIcon = () => (
     className="w-3.5 h-3.5 flex-shrink-0 mt-[5px]"
     viewBox="0 0 24 24"
     fill="none"
-    stroke="#9d93ac"
+    stroke="#ada2cc"
     strokeWidth="3"
     strokeLinecap="square"
   >
@@ -58,17 +58,14 @@ export function IsThisForYou() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {/* Yes column */}
         <div>
-          <h3
-            className="text-[14px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-nearblack"
-            style={{ borderBottom: '2px solid #9fd7d5' }}
-          >
-            Yes, if you —
+          <h3 className="text-[14px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-nearblack border-b-2 border-nearblack">
+            Yes, if you
           </h3>
           {yesItems.map((item, i) => (
             <div
               key={item}
               className={`flex gap-3 items-start py-3 text-[15px] leading-[1.5] text-nearblack ${
-                i < yesItems.length - 1 ? 'border-b-2 border-nearblack' : ''
+                i < yesItems.length - 1 ? 'border-b-2 border-turquoise' : ''
               }`}
             >
               <CheckIcon />
@@ -79,15 +76,15 @@ export function IsThisForYou() {
 
         {/* Not yet column */}
         <div>
-          <h3 className="text-[14px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-muted-subtle border-b-2 border-border-soft">
-            Not yet, if you —
+          <h3 className="text-[14px] font-bold tracking-[0.15em] uppercase mb-4 pb-2.5 text-muted-subtle border-b-2 border-nearblack">
+            Not yet, if you
           </h3>
           {noItems.map((item, i) => (
             <div
               key={item}
               className={`flex gap-3 items-start py-3 text-[15px] leading-[1.5] text-muted-subtle ${
-                i < noItems.length - 1 ? 'border-b-2 border-border-soft' : ''
-              }`}
+                i === noItems.length - 2 ? 'sm:pb-9' : ''
+              } ${i < noItems.length - 1 ? 'border-b-2 border-purple' : ''}`}
             >
               <CrossIcon />
               <span>{item}</span>
