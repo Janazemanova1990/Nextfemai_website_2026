@@ -12,21 +12,52 @@ type FormData = {
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
+const STORAGE_KEY = 'nextfem-application-draft'
+const FALLBACK_EMAIL = 'janazemanova1990@gmail.com'
+
+const emptyForm: FormData = {
+  firstName: '',
+  email: '',
+  building: '',
+  tools: '',
+  wantFromCommunity: '',
+  link: '',
+}
+
 const inputClass =
   'w-full font-sans text-[15px] border-2 border-nearblack px-4 py-3 text-nearblack bg-white outline-none transition-colors focus:bg-bg-cream'
 
 const labelClass =
   'text-[13px] font-bold tracking-[0.12em] uppercase text-nearblack'
 
+const buildMailto = (form: FormData) => {
+  const body = `First name: ${form.firstName}
+Email: ${form.email}
+
+Building:
+${form.building}
+
+Tools:
+${form.tools}
+
+Want from community:
+${form.wantFromCommunity}
+
+Link: ${form.link || '—'}`
+  return `mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent('NextFem AI application')}&body=${encodeURIComponent(body)}`
+}
+
 export function ApplicationForm() {
   const { ref, revealed } = useReveal<HTMLElement>()
-  const [form, setForm] = useState<FormData>({
-    firstName: '',
-    email: '',
-    building: '',
-    tools: '',
-    wantFromCommunity: '',
-    link: '',
+  const [form, setForm] = useState<FormData>(() => {
+    if (typeof window === 'undefined') return emptyForm
+    try {
+      const saved = window.localStorage.getItem(STORAGE_KEY)
+      if (saved) return { ...emptyForm, ...JSON.parse(saved) }
+    } catch {
+      // ignore — fall through to empty form
+    }
+    return emptyForm
   })
   const [status, setStatus] = useState<Status>('idle')
 
@@ -44,8 +75,18 @@ export function ApplicationForm() {
         body: JSON.stringify(form),
       })
       if (!res.ok) throw new Error('Submission failed')
+      try {
+        window.localStorage.removeItem(STORAGE_KEY)
+      } catch {
+        // ignore
+      }
       setStatus('success')
     } catch {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(form))
+      } catch {
+        // ignore — localStorage may be unavailable (private mode, quota)
+      }
       setStatus('error')
     }
   }
@@ -191,9 +232,17 @@ export function ApplicationForm() {
 
           <div className="text-center">
             {status === 'error' ? (
-              <p className="text-[14px] text-red-500 leading-relaxed">
-                Something went wrong. Please try again.
-              </p>
+              <div className="text-[14px] leading-relaxed space-y-2">
+                <p className="text-red-500">
+                  Something went wrong. Your answers are saved — try again, or:
+                </p>
+                <a
+                  href={buildMailto(form)}
+                  className="inline-block underline font-bold text-nearblack hover:text-coral"
+                >
+                  Email your application directly →
+                </a>
+              </div>
             ) : (
               <p className="text-[14px] text-muted-subtle leading-relaxed uppercase tracking-[0.1em]">
                 We read every application. You'll hear back within a few days.

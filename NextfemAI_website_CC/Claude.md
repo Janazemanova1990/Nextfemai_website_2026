@@ -22,9 +22,11 @@ vibe coding, Claude Code, automations, agents. Not for beginners.
 - Form POSTs JSON to VITE_FORM_WEBHOOK_URL (n8n webhook)
 - No backend in this app
 - On submit: Telegram notification to Jana → manual review in Notion → welcome email is manual for now (not yet wired into n8n)
+- On webhook error: form stashes draft to localStorage (key `nextfem-application-draft`) and shows a mailto fallback link to janazemanova1990@gmail.com so applicants aren't lost. Draft is cleared on success.
 
 ## n8n workflow
-- Workflow JSON lives at n8n/nextfem-application-intake.json (source of truth for the automation)
+- Intake workflow: n8n/nextfem-application-intake.json (source of truth)
+- Error-notifier workflow: n8n/nextfem-error-notifier.json — Error Trigger → Telegram alert. Referenced from the intake workflow's `settings.errorWorkflow` so silent node failures (Notion/Telegram) still page Jana.
 - n8n instance: self-hosted at n8n.srv1408736.hstgr.cloud
 - Webhook path: /webhook/nextfem-application
 - Flow: Webhook → parallel fan-out to Notion (save applicant, Status="New") + Telegram (ping Jana)
