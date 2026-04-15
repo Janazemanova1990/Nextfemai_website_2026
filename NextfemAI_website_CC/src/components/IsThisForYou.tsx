@@ -52,7 +52,7 @@ export function IsThisForYou() {
       <p className="text-[13px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         Is this for you?
       </p>
-      <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
+      <h2 className="text-[clamp(26px,3.2vw,38px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
         Honest check.
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

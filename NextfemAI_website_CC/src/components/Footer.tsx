@@ -16,7 +16,7 @@ export function Footer() {
           onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
           className="inline-block text-[13px] font-bold uppercase tracking-[0.12em] text-coral border-b-2 border-coral pb-1 cursor-pointer transition-colors hover:text-white hover:border-white"
         >
-          Apply for a spot →
+          Apply to join →
         </button>
       </div>
       <div className="px-8 py-5 flex items-center justify-between">

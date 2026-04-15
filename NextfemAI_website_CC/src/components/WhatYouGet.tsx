@@ -57,7 +57,7 @@ export function WhatYouGet() {
       <p className="text-[13px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         What you get
       </p>
-      <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
+      <h2 className="text-[clamp(26px,3.2vw,38px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
         One offer.<br />Small group.
       </h2>
 
@@ -65,11 +65,11 @@ export function WhatYouGet() {
         {cards.map((card, i) => (
           <div
             key={card.title}
-            className={`group p-7 bg-white text-nearblack hover:bg-nearblack hover:text-white ${i < cards.length - 1 ? 'border-b border-border-soft' : ''} sm:border sm:border-border-soft`}
+            className={`group p-7 bg-white text-nearblack hover:bg-turquoise ${i < cards.length - 1 ? 'border-b border-border-soft' : ''} sm:border sm:border-border-soft`}
           >
             <div className="mb-4">{card.icon}</div>
             <h3 className="text-[20px] font-bold mb-2">{card.title}</h3>
-            <p className="text-[16px] text-muted-body group-hover:text-white leading-[1.6]">{card.body}</p>
+            <p className="text-[16px] text-muted-body group-hover:text-nearblack leading-[1.6]">{card.body}</p>
           </div>
         ))}
       </div>

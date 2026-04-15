@@ -31,7 +31,7 @@ export function HowItWorks() {
       <p className="text-[13px] font-bold tracking-[0.2em] uppercase text-purple mb-3">
         How it works
       </p>
-      <h2 className="text-[clamp(32px,4vw,48px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
+      <h2 className="text-[clamp(26px,3.2vw,38px)] font-black leading-[0.95] tracking-[-0.03em] text-nearblack mb-8">
         Simple.<br />Don't overthink it.
       </h2>
       <div>
@@ -47,8 +47,8 @@ export function HowItWorks() {
               <span className="step-num">{step.num}</span>
             </span>
             <div className="step-content">
-              <h3 className="text-[20px] font-bold text-nearblack mb-2">{step.title}</h3>
-              <p className="text-[15px] text-muted-body leading-[1.6] max-w-[440px]">{step.body}</p>
+              <h3 className="text-[22px] font-bold text-nearblack mb-2">{step.title}</h3>
+              <p className="text-[17px] text-muted-body leading-[1.6] max-w-[480px]">{step.body}</p>
             </div>
           </div>
         ))}

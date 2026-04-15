@@ -31,7 +31,7 @@ it('shows success message after successful submission', async () => {
   fireEvent.change(screen.getByLabelText(/tools are you using/i), { target: { value: 'Claude Code' } })
   fireEvent.change(screen.getByLabelText(/what do you want from this community/i), { target: { value: 'Peers' } })
 
-  fireEvent.click(screen.getByRole('button', { name: /apply to join/i }))
+  fireEvent.click(screen.getByRole('button', { name: /apply to join community/i }))
 
   await waitFor(() => {
     expect(screen.getByText(/application sent/i)).toBeInTheDocument()
@@ -48,7 +48,7 @@ it('shows error message when webhook fails', async () => {
   fireEvent.change(screen.getByLabelText(/tools are you using/i), { target: { value: 'Claude Code' } })
   fireEvent.change(screen.getByLabelText(/what do you want from this community/i), { target: { value: 'Peers' } })
 
-  fireEvent.click(screen.getByRole('button', { name: /apply to join/i }))
+  fireEvent.click(screen.getByRole('button', { name: /apply to join community/i }))
 
   await waitFor(() => {
     expect(screen.getByText(/something went wrong/i)).toBeInTheDocument()
@@ -65,7 +65,7 @@ it('POSTs form data as JSON to the webhook URL', async () => {
   fireEvent.change(screen.getByLabelText(/tools are you using/i), { target: { value: 'Claude Code' } })
   fireEvent.change(screen.getByLabelText(/what do you want from this community/i), { target: { value: 'Peers' } })
 
-  fireEvent.click(screen.getByRole('button', { name: /apply to join/i }))
+  fireEvent.click(screen.getByRole('button', { name: /apply to join community/i }))
 
   await waitFor(() => {
     expect(globalThis.fetch).toHaveBeenCalledWith(

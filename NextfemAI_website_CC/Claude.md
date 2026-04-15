@@ -1,14 +1,15 @@
-# NextFem AI — Builder Community Website
+# NextFem AI — Peer Community Website
 
 ## What This Is
-A single page website for the NextFem AI Build stream.
-A peer community for women who are already building with AI —
-vibe coding, Claude Code, automations, agents. Not for beginners.
+A single page website for the NextFem AI peer community.
+For women actively working with AI on practical use cases —
+custom GPTs, Claude Code, Claude Cowork, automations, agents.
+Not for beginners.
 
 ## One offer only
 - 10€/month commitment fee
 - Application only, limited spots
-- Monthly live session + Discord community
+- 2× live sessions a month + WhatsApp group (Cohort 2)
 
 ## Tech Stack
 - React 19 + Vite 8
@@ -47,7 +48,7 @@ If you rename any form field, update the matching expression in the Notion node 
 
 ## Brand
 - Purple: #ada2cc — primary accent, eyebrows, icons
-- Turquoise: #9fd7d5 — "Yes" column underline only
+- Turquoise: #9fd7d5 — "Yes" column underline + `What you get` card hover background
 - Coral: #e76e50 — CTA buttons ONLY, nothing else
 - Near-black: #0e0d12 — text, borders, footer bg
 - Background: #ffffff / #f8f7fc
@@ -73,7 +74,7 @@ If you rename any form field, update the matching expression in the Notion node 
 - Scroll reveals use the useReveal hook (src/hooks/useReveal.ts) — IntersectionObserver with a jsdom fallback. Apply the hook directly to a section's root element with the .section-reveal class. No wrapper component.
 
 ## Page Sections (in order)
-1. Hero — logo bar, headline with outlined "building", price box, CTA, stats bar
+1. Hero — logo bar, headline with outlined "working on", price box, CTA, stats bar
 2. How it works — 3 numbered steps
 3. Is this for you — two-column yes/no
 4. What you get — 2×2 cards + dark price bar
@@ -81,10 +82,10 @@ If you rename any form field, update the matching expression in the Notion node 
 6. Footer
 
 ## Stats Bar (Hero)
-No member count — uses founding cohort framing:
-- "Founding cohort" / be one of the first
-- 1× / live · month
-- "Application" / only
+No member count — uses Cohort 2 framing. Main labels are `text-nearblack`, sublabels `text-muted-subtle` uppercase:
+- "Cohort 2" / now open
+- "2× live sessions" / per month
+- "Application only" / limited spots
 
 ## What Claude Gets Wrong
 - Coral is for CTA buttons only — never decorative
@@ -95,4 +96,5 @@ No member count — uses founding cohort framing:
 - Tailwind v4 — no tailwind.config.js, tokens go in src/index.css @theme block
 - Do not animate text by replacing it with inline SVG <text> for stroke-draw effects. SVG text baseline metrics don't reliably match surrounding CSS text — you get descender clipping and baseline drift. Use CSS clip-path on real text instead.
 - All animations must respect prefers-reduced-motion: reduce. Test with DevTools → Rendering → Emulate.
-- For clip-path wipes on text with tight leading (e.g. leading-[0.85] in the hero), use NEGATIVE top/bottom insets in the keyframe (e.g. inset(-30% -5% -30% -5%)) so descenders/ascenders aren't cropped at the line box.
+- For clip-path wipes on text with tight leading (e.g. leading-[0.95] in the hero), use NEGATIVE top/bottom insets in the keyframe (e.g. inset(-30% -5% -30% -5%)) so descenders/ascenders aren't cropped at the line box.
+- The `building` form field key and `.building-reveal` CSS class are NOT about the word "building" — they're legacy names for the hero's outlined-word animation and the "what are you working on" textarea. The form field key stays `building` to preserve the n8n/Notion column contract; only the user-facing label was changed to "working on".
