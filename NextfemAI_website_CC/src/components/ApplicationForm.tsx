@@ -13,7 +13,7 @@ type FormData = {
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const STORAGE_KEY = 'nextfem-application-draft'
-const FALLBACK_EMAIL = 'janazemanova1990@gmail.com'
+const FALLBACK_EMAIL = 'hi@nextfemai.com'
 
 const emptyForm: FormData = {
   firstName: '',
