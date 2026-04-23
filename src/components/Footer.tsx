@@ -26,9 +26,15 @@ export function Footer() {
             alt="Nextfem AI"
             className="h-6 w-auto"
           />
-          <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">© 2026 Nextfem AI</span>
+          <span className="hidden sm:inline text-[11px] text-ink-ghost uppercase tracking-[0.1em]">© 2026 Nextfem AI</span>
+          <span className="sm:hidden text-[11px] text-ink-ghost uppercase tracking-[0.1em] leading-tight">
+            2026<br />Nextfem AI
+          </span>
         </div>
-        <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">Vibecoded with Claude</span>
+        <span className="hidden sm:inline text-[11px] text-ink-ghost uppercase tracking-[0.1em]">Vibecoded with Claude</span>
+        <span className="sm:hidden text-[11px] text-ink-ghost uppercase tracking-[0.1em] leading-tight text-right">
+          Vibecoded<br />with Claude
+        </span>
       </div>
     </footer>
   )

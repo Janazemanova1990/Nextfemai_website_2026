@@ -1,74 +1,24 @@
-import { useState } from 'react'
-
-const navItems = [
-  { label: 'How it works', id: 'how-it-works' },
-  { label: 'Is this for you?', id: 'for-you' },
-  { label: 'What you get', id: 'what-you-get' },
-  { label: 'Apply', id: 'apply' },
-]
-
 export function Hero() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   const scrollToId = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      const offset = 200
-      const top = element.getBoundingClientRect().top + window.scrollY - offset
-      window.scrollTo({ top, behavior: 'smooth' })
-    }
-  }
-
-  const handleNavClick = (id: string) => {
-    setMenuOpen(false)
-    scrollToId(id)
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
     <section className="border-b-2 border-nearblack">
-      {/* Top bar */}
+      {/* Top bar — logo+hamburger on desktop only (mobile uses sticky <Header />) */}
       <div className="flex flex-col sm:flex-row sm:items-stretch border-b-2 border-nearblack">
-        <div className="flex-1 px-5 py-4 sm:py-2.5 sm:border-r-2 sm:border-nearblack flex items-center justify-between">
+        <div className="hidden sm:flex flex-1 px-5 py-4 sm:py-2.5 sm:border-r-2 sm:border-nearblack items-center justify-between">
           <img
             src="/nextfem-horizontal-transparent.png"
             alt="Nextfem AI"
             className="h-10 w-auto"
           />
-          <button
-            type="button"
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-            className="block sm:hidden p-2 -mr-2 cursor-pointer"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0e0d12" strokeWidth="2.5" strokeLinecap="square">
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          </button>
         </div>
         <div className="w-full sm:w-auto flex items-center justify-end sm:justify-start gap-1.5 px-5 py-2.5 sm:py-0 bg-purple text-white text-[11px] font-black tracking-[0.1em] uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           Accepting applications
         </div>
       </div>
-
-      {/* Mobile dropdown menu */}
-      {menuOpen && (
-        <div className="block sm:hidden bg-white border-b-2 border-nearblack">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => handleNavClick(item.id)}
-              className="w-full text-left px-5 py-4 text-[15px] font-bold tracking-[0.04em] uppercase text-nearblack border-b border-nearblack last:border-b-0 hover:bg-bg-cream cursor-pointer"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-      )}
 
       {/* Main area */}
       <div className="px-8 pt-12 pb-10 sm:pt-20 sm:pb-16 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-6 items-stretch sm:items-end">

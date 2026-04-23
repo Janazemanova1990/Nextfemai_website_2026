@@ -32,6 +32,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  scroll-padding-top: 84px; /* mobile sticky header (68) + 16 breathing */
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 24px; /* no sticky header on desktop; small visual gap */
+  }
+}
+
 ::selection {
   background: var(--color-purple);
   color: #fff;
