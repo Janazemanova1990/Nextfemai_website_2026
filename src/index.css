@@ -92,6 +92,29 @@ html {
   .building-reveal { animation: buildingReveal 600ms 320ms ease-out both; }
 }
 
+/* ─── Live indicator dot (Accepting Applications bar) ─── */
+/* Override the global border-radius reset so the dot + ring render as circles. */
+.live-dot,
+.live-dot-ring {
+  border-radius: 9999px !important;
+}
+
+@keyframes liveDotPulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .live-dot-ring {
+    animation: liveDotPulse 1400ms ease-out infinite;
+    transform-origin: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot-ring { display: none; }
+}
+
 /* ─── HowItWorks numbered steps ──────────────── */
 .step-num-wrap {
   display: inline-block;

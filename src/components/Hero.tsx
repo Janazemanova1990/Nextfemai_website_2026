@@ -14,9 +14,12 @@ export function Hero() {
             className="h-10 w-auto"
           />
         </div>
-        <div className="w-full sm:w-auto flex items-center justify-end sm:justify-start gap-1.5 px-5 py-2.5 sm:py-0 bg-purple text-white text-[11px] font-black tracking-[0.1em] uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-          Accepting applications
+        <div className="w-full sm:w-auto flex items-center justify-end sm:justify-start gap-2 px-5 py-2.5 sm:py-0 bg-purple text-white text-[11px] font-black tracking-[0.1em] uppercase">
+          Accepting Applications · Closes 30 May
+          <span className="relative inline-flex w-2.5 h-2.5 shrink-0">
+            <span aria-hidden="true" className="live-dot-ring absolute inset-0 border-2 border-coral" />
+            <span className="live-dot relative inline-flex w-2.5 h-2.5 bg-coral" />
+          </span>
         </div>
       </div>
 

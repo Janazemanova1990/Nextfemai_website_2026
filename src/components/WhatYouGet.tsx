@@ -80,8 +80,19 @@ export function WhatYouGet() {
           Keeps the community running<br />and the group committed.
         </p>
         <div className="sm:text-right">
-          <div className="text-[40px] font-black text-white leading-none tracking-[-0.03em]">10€/mo</div>
-          <div className="text-[11px] text-white/80 mt-1.5 uppercase tracking-[0.1em]">Cancel any time</div>
+          {/* Mobile: stacked 10€ / per month / Cancel any time */}
+          <div className="sm:hidden">
+            <div className="text-[40px] font-black text-white leading-none tracking-[-0.03em]">10€</div>
+            <div className="text-[15px] text-white leading-none mt-1">per month</div>
+            <div className="text-[11px] text-white/80 mt-1.5 uppercase tracking-[0.1em]">Cancel any time</div>
+          </div>
+          {/* Desktop: 10€ per month inline + caption */}
+          <div className="hidden sm:block">
+            <div className="text-[40px] font-black text-white leading-none tracking-[-0.03em]">
+              10€<span className="text-[28px] font-semibold ml-1.5">per month</span>
+            </div>
+            <div className="text-[11px] text-white/80 mt-1.5 uppercase tracking-[0.1em]">Cancel any time</div>
+          </div>
         </div>
       </div>
     </section>
