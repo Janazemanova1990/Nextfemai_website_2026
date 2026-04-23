@@ -118,7 +118,7 @@ export function Hero() {
             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
           </svg>
           <div className="text-[20px] font-black text-nearblack leading-none">Cohort 2</div>
-          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">now open</div>
+          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">opens in June</div>
         </div>
         <div className="px-5 py-4 border-b-2 sm:border-b-0 sm:border-r-2 border-nearblack">
           <svg
@@ -152,7 +152,7 @@ export function Hero() {
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
           <div className="text-[20px] font-black text-nearblack leading-none">Application only</div>
-          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">limited spots</div>
+          <div className="text-[13px] text-muted-subtle uppercase tracking-[0.1em] mt-1">only 12 spots</div>
         </div>
       </div>
     </section>

@@ -28,7 +28,7 @@ export function Footer() {
           />
           <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">© 2026 Nextfem AI</span>
         </div>
-        <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">Peer community</span>
+        <span className="text-[11px] text-ink-ghost uppercase tracking-[0.1em]">Vibecoded with Claude</span>
       </div>
     </footer>
   )
