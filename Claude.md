@@ -49,7 +49,7 @@ If you rename any form field, update the matching expression in the Notion node 
 ## Brand
 - Purple: #ada2cc — primary accent, eyebrows, icons
 - Turquoise: #9fd7d5 — "Yes" column underline + `What you get` card hover background
-- Coral: #e76e50 — CTA buttons ONLY, nothing else
+- Coral: #e76e50 — CTA buttons + the apply-bar live indicator dot. Nothing else.
 - Near-black: #0e0d12 — text, borders, footer bg
 - Background: #ffffff / #f8f7fc
 - Font: DM Sans (Google Fonts, loaded in index.html)
@@ -88,7 +88,8 @@ No member count — uses Cohort 2 framing. Main labels are `text-nearblack`, sub
 - "Application only" / limited spots
 
 ## What Claude Gets Wrong
-- Coral is for CTA buttons only — never decorative
+- Coral is for CTA buttons and the apply-bar live indicator dot — never elsewhere/decorative
+- Round elements (status dots, badges, pills) need `border-radius: 9999px !important` to override the global `* { border-radius: 0 !important }` reset. See `.live-dot` / `.live-dot-ring` in src/index.css for the pattern.
 - No Lorem ipsum — all copy is final (see design spec)
 - No extra pages, no router
 - DM Sans loads from Google Fonts in index.html — do not use next/font or local import
