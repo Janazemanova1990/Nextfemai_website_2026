@@ -1,8 +1,8 @@
-# NextFem AI Website Implementation Plan
+# Nextfem AI Website Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build a single-page React + Vite marketing and application site for the NextFem AI Build Stream community.
+**Goal:** Build a single-page React + Vite marketing and application site for the Nextfem AI Build Stream community.
 
 **Architecture:** Six section components assembled in `App.tsx`, no router, Tailwind CSS for styling with brand tokens defined in `tailwind.config.js`, form submission via a single `fetch` POST to a webhook URL stored in `.env`.
 

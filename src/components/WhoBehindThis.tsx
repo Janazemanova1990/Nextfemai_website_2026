@@ -20,7 +20,7 @@ export function WhoBehindThis() {
         <div className="border-2 border-nearblack overflow-hidden w-[200px] h-[200px]">
           <img
             src="/jana-photo.jpg"
-            alt="Jana, founder of NextFem AI"
+            alt="Jana, founder of Nextfem AI"
             className="w-full h-full object-cover block"
           />
         </div>
@@ -28,7 +28,7 @@ export function WhoBehindThis() {
         <div className="text-[16px] leading-[1.6] text-nearblack space-y-4">
           <p>
             I'm a freelancer based in Prague, currently working from Asia.<br />
-            I started NextFem AI because I was tired of learning this alone.<br />
+            I started Nextfem AI because I was tired of learning this alone.<br />
             I'd figure something out on a Tuesday and have no one to tell.<br />
             I'd hit a wall on a Wednesday and have no one to ask.
           </p>

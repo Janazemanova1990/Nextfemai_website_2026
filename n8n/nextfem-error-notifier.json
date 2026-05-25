@@ -1,5 +1,5 @@
 {
-  "name": "NextFem AI - Error Notifier",
+  "name": "Nextfem AI - Error Notifier",
   "nodes": [
     {
       "parameters": {},
@@ -12,7 +12,7 @@
     {
       "parameters": {
         "chatId": "REPLACE_WITH_YOUR_TELEGRAM_CHAT_ID",
-        "text": "=\u26a0\ufe0f *NextFem workflow FAILED*\n\n*Workflow:* {{ $json.workflow.name }}\n*Failed node:* {{ $json.execution.lastNodeExecuted }}\n*Error:* {{ $json.execution.error.message }}\n\n*Applicant data (may be partial):*\nName: {{ $json.execution.error.context?.data?.body?.firstName || '\u2014' }}\nEmail: {{ $json.execution.error.context?.data?.body?.email || '\u2014' }}\n\nOpen execution: {{ $json.execution.url }}",
+        "text": "=\u26a0\ufe0f *Nextfem workflow FAILED*\n\n*Workflow:* {{ $json.workflow.name }}\n*Failed node:* {{ $json.execution.lastNodeExecuted }}\n*Error:* {{ $json.execution.error.message }}\n\n*Applicant data (may be partial):*\nName: {{ $json.execution.error.context?.data?.body?.firstName || '\u2014' }}\nEmail: {{ $json.execution.error.context?.data?.body?.email || '\u2014' }}\n\nOpen execution: {{ $json.execution.url }}",
         "additionalFields": {
           "parse_mode": "Markdown"
         }

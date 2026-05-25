@@ -1,7 +1,7 @@
-# NextFem AI — Peer Community Website
+# Nextfem AI — Peer Community Website
 
 ## What This Is
-A single page website for the NextFem AI peer community.
+A single page website for the Nextfem AI peer community.
 For women actively working with AI on practical use cases —
 custom GPTs, Claude Code, Claude Cowork, automations, agents.
 Not for beginners.

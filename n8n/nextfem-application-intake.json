@@ -1,5 +1,5 @@
 {
-  "name": "NextFem AI - Application Intake",
+  "name": "Nextfem AI - Application Intake",
   "nodes": [
     {
       "parameters": {
@@ -89,7 +89,7 @@
     {
       "parameters": {
         "chatId": "REPLACE_WITH_YOUR_TELEGRAM_CHAT_ID",
-        "text": "=\ud83d\udce9 *New NextFem AI application*\n\n*Name:* {{ $json.body.firstName }}\n*Email:* {{ $json.body.email }}\n\n*Building:*\n{{ $json.body.building }}\n\n*Tools:* {{ $json.body.tools }}\n\n*Wants from community:*\n{{ $json.body.wantFromCommunity }}\n\n*Link:* {{ $json.body.link || '\u2014' }}\n\nReview in Notion: https://www.notion.so/6bc30d4ddc1d44a7a1a75f988fa15d1d",
+        "text": "=\ud83d\udce9 *New Nextfem AI application*\n\n*Name:* {{ $json.body.firstName }}\n*Email:* {{ $json.body.email }}\n\n*Building:*\n{{ $json.body.building }}\n\n*Tools:* {{ $json.body.tools }}\n\n*Wants from community:*\n{{ $json.body.wantFromCommunity }}\n\n*Link:* {{ $json.body.link || '\u2014' }}\n\nReview in Notion: https://www.notion.so/6bc30d4ddc1d44a7a1a75f988fa15d1d",
         "additionalFields": {
           "parse_mode": "Markdown"
         }

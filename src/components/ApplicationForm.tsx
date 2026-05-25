@@ -44,7 +44,7 @@ Want from community:
 ${form.wantFromCommunity}
 
 Link: ${form.link || '—'}`
-  return `mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent('NextFem AI application')}&body=${encodeURIComponent(body)}`
+  return `mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent('Nextfem AI application')}&body=${encodeURIComponent(body)}`
 }
 
 export function ApplicationForm() {

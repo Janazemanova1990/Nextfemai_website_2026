@@ -1,4 +1,4 @@
-# NextFem AI — Website Design Specification
+# Nextfem AI — Website Design Specification
 **Date:** 2026-03-31  
 **Status:** Approved — ready to build  
 **Mockup:** `.superpowers/brainstorm/16453-1774955100/content/full-page-design.html`
@@ -7,7 +7,7 @@
 
 ## Overview
 
-A single-page marketing and application site for the NextFem AI Build Stream — a peer community for women already building with AI. One offer only: 10€/month commitment fee, application-only access, limited spots.
+A single-page marketing and application site for the Nextfem AI Build Stream — a peer community for women already building with AI. One offer only: 10€/month commitment fee, application-only access, limited spots.
 
 ---
 
