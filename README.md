@@ -55,7 +55,7 @@ Form field names in `src/components/ApplicationForm.tsx` are contract-bound to N
 | wantFromCommunity | Want from community |
 | link            | Link (optional)       |
 
-Intake flow: Webhook → Notion (save applicant, Status = "New") + Telegram (ping Jana) in parallel. Error workflow alerts via Telegram on silent node failures.
+Intake flow: Webhook → Notion (save applicant, Status = "New") + Telegram (ping Jana) + confirmation email to the applicant acknowledging their application, in parallel. Error workflow alerts via Telegram on silent node failures.
 
 ## Brand
 

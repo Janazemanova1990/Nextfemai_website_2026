@@ -22,7 +22,7 @@ Not for beginners.
 ## Form Backend
 - Form POSTs JSON to VITE_FORM_WEBHOOK_URL (n8n webhook)
 - No backend in this app
-- On submit: Telegram notification to Jana → manual review in Notion → welcome email is manual for now (not yet wired into n8n)
+- On submit: Telegram notification to Jana + automatic confirmation email to the applicant → manual review in Notion
 - On webhook error: form stashes draft to localStorage (key `nextfem-application-draft`) and shows a mailto fallback link to hi@nextfemai.com so applicants aren't lost. Draft is cleared on success.
 
 ## n8n workflow
@@ -30,7 +30,7 @@ Not for beginners.
 - Error-notifier workflow: n8n/nextfem-error-notifier.json — Error Trigger → Telegram alert. Referenced from the intake workflow's `settings.errorWorkflow` so silent node failures (Notion/Telegram) still page Jana.
 - n8n instance: self-hosted at n8n.srv1408736.hstgr.cloud
 - Webhook path: /webhook/nextfem-application
-- Flow: Webhook → parallel fan-out to Notion (save applicant, Status="New") + Telegram (ping Jana)
+- Flow: Webhook → parallel fan-out to Notion (save applicant, Status="New") + Telegram (ping Jana) + confirmation email to applicant
 
 ## Form field ↔ Notion column contract
 Form field names in src/components/ApplicationForm.tsx are contract-bound to Notion column mappings in the n8n workflow. Renaming either side without updating the other breaks submission writes.
